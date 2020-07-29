@@ -1,16 +1,17 @@
-import React from 'react';
 import {
-  View,
-  Text,
-  Modal,
   FlatList,
-  StyleSheet,
+  Modal,
   SafeAreaView,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
+  StyleSheet,
+  Text,
   TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
+
 import PropTypes from 'prop-types';
+import React from 'react';
 import data from './Countries';
 
 export default class IntlPhoneInput extends React.Component {
@@ -24,7 +25,7 @@ export default class IntlPhoneInput extends React.Component {
       dialCode: defaultCountry.dialCode,
       phoneNumber: '',
       mask: defaultCountry.mask,
-      countryData: data,
+      countryData: countryToShow ? data.filter((country) => countryToShow.includes(country.dialCode)) : data,
       selectedCountry:defaultCountry
     };
   }
@@ -224,6 +225,7 @@ IntlPhoneInput.propTypes = {
   searchIconStyle: PropTypes.object,
   disableCountryChange: PropTypes.bool,
   inputRef: PropTypes.object,
+  countryToShow: []
 };
 
 const styles = StyleSheet.create({
