@@ -25,7 +25,7 @@ export default class IntlPhoneInput extends React.Component {
       dialCode: defaultCountry.dialCode,
       phoneNumber: '',
       mask: defaultCountry.mask,
-      countryData: countryToShow ? data.filter((country) => countryToShow.includes(country.dialCode)) : data,
+      countryData: props.countryToShow ? data.filter((country) => props.countryToShow.includes(country.dialCode)) : data,
       selectedCountry:defaultCountry
     };
   }
