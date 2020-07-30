@@ -227,7 +227,7 @@ IntlPhoneInput.propTypes = {
   disableCountryChange: PropTypes.bool,
   inputRef: PropTypes.object,
   countryToShow: [],
-  defaultValue: PropTypes.object
+  defaultValue: PropTypes.string
 };
 
 const styles = StyleSheet.create({
