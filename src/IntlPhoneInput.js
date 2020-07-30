@@ -194,6 +194,7 @@ renderAction=()=>{
           placeholder={this.props.placeholder || this.state.mask.replace(/9/g, '_')}
           autoCorrect={false}
           keyboardType="number-pad"
+          defaultValue={this.props.defaultValue}
           secureTextEntry={false}
           value={this.state.phoneNumber}
           onChangeText={this.onChangeText}
@@ -225,7 +226,8 @@ IntlPhoneInput.propTypes = {
   searchIconStyle: PropTypes.object,
   disableCountryChange: PropTypes.bool,
   inputRef: PropTypes.object,
-  countryToShow: []
+  countryToShow: [],
+  defaultValue: PropTypes.object
 };
 
 const styles = StyleSheet.create({
