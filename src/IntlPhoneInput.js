@@ -25,7 +25,7 @@ export default class IntlPhoneInput extends React.Component {
       dialCode: defaultCountry.dialCode,
       phoneNumber: '',
       mask: defaultCountry.mask,
-      countryData: props.countryToShow ? data.filter((country) => props.countryToShow.includes(country.dialCode)) : data,
+      countryData: props.countryToShow.length > 0 ? data.filter((country) => props.countryToShow.includes(country.dialCode)) : data,
       selectedCountry:defaultCountry
     };
   }
@@ -196,7 +196,7 @@ renderAction=()=>{
           keyboardType="number-pad"
           defaultValue={this.props.defaultValue}
           secureTextEntry={false}
-          value={this.state.phoneNumber}
+          value={this.props.value ? this.props.value : this.state.phoneNumber}
           onChangeText={this.onChangeText}
         />
         {this.renderAction()}
@@ -227,13 +227,15 @@ IntlPhoneInput.propTypes = {
   disableCountryChange: PropTypes.bool,
   inputRef: PropTypes.object,
   countryToShow: [],
-  defaultValue: PropTypes.string
+  value: PropTypes.string
 };
 
 const styles = StyleSheet.create({
   closeTextStyle: {
     padding: 5,
     fontSize: 20,
+    width: "100%",
+    textAlign: "center",
     color: 'black',
     fontWeight: 'bold'
   },
